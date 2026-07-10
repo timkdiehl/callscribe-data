@@ -216,6 +216,44 @@
       "theySend": "Name + state"
     },
     {
+      "cabrilloID": "",
+      "exchangeExample": "TIM CO 71234",
+      "exchangeHint": "Your name, state, 10-10 number (0 if none)",
+      "key": "1010-winter-ssb",
+      "months": [
+        2
+      ],
+      "name": "10-10 Int. Winter Contest (SSB)",
+      "profileID": "name-state",
+      "schedule": [
+        {
+          "month": 2,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "10-10 Winter",
+      "theySend": "Name, state, 10-10 number"
+    },
+    {
+      "cabrilloID": "",
+      "exchangeExample": "TIM CO 71234",
+      "exchangeHint": "Your name, state, 10-10 number (0 if none)",
+      "key": "1010-summer-ssb",
+      "months": [
+        8
+      ],
+      "name": "10-10 Int. Summer Contest (SSB)",
+      "profileID": "name-state",
+      "schedule": [
+        {
+          "month": 8,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "10-10 Summer",
+      "theySend": "Name, state, 10-10 number"
+    },
+    {
       "cabrilloID": "ARRL-DX-SSB",
       "exchangeExample": "CO",
       "exchangeHint": "Your state (or power if DX)",

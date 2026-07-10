@@ -30,6 +30,8 @@ RSS_URL = "https://www.contestcalendar.com/calendar.rss"
 # Catalog key → exact WA7BNM feed title.
 TITLES = {
     "arrl-fd": "ARRL Field Day",
+    "1010-winter-ssb": "10-10 Int. Winter Contest, SSB",
+    "1010-summer-ssb": "10-10 Int. Summer Contest, SSB",
     "winter-fd": "Winter Field Day",
     "cq-wpx-ssb": "CQ WW WPX Contest, SSB",
     "cq-wpx-cw": "CQ WW WPX Contest, CW",
