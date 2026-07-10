@@ -1,0 +1,369 @@
+{
+  "entries" : [
+    {
+      "cabrilloID" : "ARRL-FIELD-DAY",
+      "exchangeExample" : "3A CT",
+      "exchangeHint" : "Your class + section",
+      "key" : "arrl-fd",
+      "months" : [
+        6
+      ],
+      "name" : "ARRL Field Day",
+      "profileID" : "class-section",
+      "schedule" : [
+        {
+          "month" : 6,
+          "ordinal" : 4
+        }
+      ],
+      "shortName" : "Field Day",
+      "theySend" : "Class + section"
+    },
+    {
+      "cabrilloID" : "WFD",
+      "exchangeExample" : "1O CT",
+      "exchangeHint" : "Your class + section",
+      "key" : "winter-fd",
+      "months" : [
+        1
+      ],
+      "name" : "Winter Field Day",
+      "profileID" : "class-section",
+      "schedule" : [
+        {
+          "month" : 1,
+          "ordinal" : -1
+        }
+      ],
+      "shortName" : "Winter FD",
+      "theySend" : "Class + section"
+    },
+    {
+      "cabrilloID" : "CQ-WPX-SSB",
+      "key" : "cq-wpx-ssb",
+      "months" : [
+        3
+      ],
+      "name" : "CQ WPX SSB",
+      "profileID" : "rst-serial",
+      "schedule" : [
+        {
+          "month" : 3,
+          "ordinal" : -1
+        }
+      ],
+      "shortName" : "WPX SSB",
+      "theySend" : "RST + serial number"
+    },
+    {
+      "cabrilloID" : "CQ-WPX-CW",
+      "key" : "cq-wpx-cw",
+      "months" : [
+        5
+      ],
+      "name" : "CQ WPX CW",
+      "profileID" : "rst-serial",
+      "schedule" : [
+        {
+          "month" : 5,
+          "ordinal" : -1
+        }
+      ],
+      "shortName" : "WPX CW",
+      "theySend" : "RST + serial number"
+    },
+    {
+      "cabrilloID" : "CQ-WW-SSB",
+      "exchangeExample" : "5",
+      "exchangeHint" : "Your CQ zone",
+      "key" : "cq-ww-ssb",
+      "months" : [
+        10
+      ],
+      "name" : "CQ WW DX SSB",
+      "profileID" : "rst-cq-zone",
+      "schedule" : [
+        {
+          "month" : 10,
+          "ordinal" : -1
+        }
+      ],
+      "shortName" : "CQ WW SSB",
+      "theySend" : "RST + CQ zone"
+    },
+    {
+      "cabrilloID" : "CQ-WW-CW",
+      "exchangeExample" : "5",
+      "exchangeHint" : "Your CQ zone",
+      "key" : "cq-ww-cw",
+      "months" : [
+        11
+      ],
+      "name" : "CQ WW DX CW",
+      "profileID" : "rst-cq-zone",
+      "schedule" : [
+        {
+          "month" : 11,
+          "ordinal" : -1
+        }
+      ],
+      "shortName" : "CQ WW CW",
+      "theySend" : "RST + CQ zone"
+    },
+    {
+      "cabrilloID" : "IARU-HF",
+      "exchangeExample" : "8",
+      "exchangeHint" : "Your ITU zone",
+      "key" : "iaru-hf",
+      "months" : [
+        7
+      ],
+      "name" : "IARU HF Championship",
+      "profileID" : "rst-itu-zone",
+      "schedule" : [
+        {
+          "month" : 7,
+          "ordinal" : 2
+        }
+      ],
+      "shortName" : "IARU HF",
+      "theySend" : "RST + ITU zone (HQ stations send a society)"
+    },
+    {
+      "cabrilloID" : "ARRL-SS-SSB",
+      "exchangeExample" : "B 71 CO",
+      "exchangeHint" : "Precedence, check, section",
+      "key" : "arrl-ss-ph",
+      "months" : [
+        11
+      ],
+      "name" : "ARRL Sweepstakes (Phone)",
+      "profileID" : "sweepstakes",
+      "schedule" : [
+        {
+          "month" : 11,
+          "ordinal" : 3
+        }
+      ],
+      "shortName" : "SS Phone",
+      "theySend" : "Serial, precedence, check, section"
+    },
+    {
+      "cabrilloID" : "ARRL-SS-CW",
+      "exchangeExample" : "B 71 CO",
+      "exchangeHint" : "Precedence, check, section",
+      "key" : "arrl-ss-cw",
+      "months" : [
+        11
+      ],
+      "name" : "ARRL Sweepstakes (CW)",
+      "profileID" : "sweepstakes",
+      "schedule" : [
+        {
+          "month" : 11,
+          "ordinal" : 1
+        }
+      ],
+      "shortName" : "SS CW",
+      "theySend" : "Serial, precedence, check, section"
+    },
+    {
+      "cabrilloID" : "NAQP-SSB",
+      "exchangeExample" : "TIM CO",
+      "exchangeHint" : "Your name + state",
+      "key" : "naqp-ssb",
+      "months" : [
+        1,
+        8
+      ],
+      "name" : "NAQP SSB",
+      "profileID" : "name-state",
+      "schedule" : [
+        {
+          "month" : 1,
+          "ordinal" : 3
+        },
+        {
+          "month" : 8,
+          "ordinal" : 2
+        }
+      ],
+      "shortName" : "NAQP SSB",
+      "theySend" : "Name + state"
+    },
+    {
+      "cabrilloID" : "NAQP-CW",
+      "exchangeExample" : "TIM CO",
+      "exchangeHint" : "Your name + state",
+      "key" : "naqp-cw",
+      "months" : [
+        1,
+        8
+      ],
+      "name" : "NAQP CW",
+      "profileID" : "name-state",
+      "schedule" : [
+        {
+          "month" : 1,
+          "ordinal" : 2
+        },
+        {
+          "month" : 8,
+          "ordinal" : 1
+        }
+      ],
+      "shortName" : "NAQP CW",
+      "theySend" : "Name + state"
+    },
+    {
+      "cabrilloID" : "ARRL-DX-SSB",
+      "exchangeExample" : "CO",
+      "exchangeHint" : "Your state (or power if DX)",
+      "key" : "arrl-dx-ph",
+      "months" : [
+        3
+      ],
+      "name" : "ARRL DX (Phone)",
+      "profileID" : "rst-state",
+      "schedule" : [
+        {
+          "month" : 3,
+          "ordinal" : 1
+        }
+      ],
+      "shortName" : "ARRL DX",
+      "theySend" : "RST + state (W\/VE) or power (DX)"
+    },
+    {
+      "cabrilloID" : "ARRL-10",
+      "exchangeExample" : "CO",
+      "exchangeHint" : "Your state",
+      "key" : "arrl-10m",
+      "months" : [
+        12
+      ],
+      "name" : "ARRL 10 Meter",
+      "profileID" : "rst-state",
+      "schedule" : [
+        {
+          "month" : 12,
+          "ordinal" : 2
+        }
+      ],
+      "shortName" : "ARRL 10m",
+      "theySend" : "RST + state (or serial from DX)"
+    },
+    {
+      "cabrilloID" : "CQ-160-SSB",
+      "exchangeExample" : "CO",
+      "exchangeHint" : "Your state",
+      "key" : "cq-160-ssb",
+      "months" : [
+        2
+      ],
+      "name" : "CQ 160-Meter SSB",
+      "profileID" : "rst-state",
+      "schedule" : [
+        {
+          "month" : 2,
+          "ordinal" : -1
+        }
+      ],
+      "shortName" : "CQ 160",
+      "theySend" : "RST + state\/province"
+    },
+    {
+      "cabrilloID" : "ARRL-VHF-JAN",
+      "exchangeExample" : "DM79",
+      "exchangeHint" : "Your grid square",
+      "key" : "arrl-vhf-jan",
+      "months" : [
+        1
+      ],
+      "name" : "ARRL January VHF",
+      "profileID" : "grid",
+      "schedule" : [
+        {
+          "month" : 1,
+          "ordinal" : 3
+        }
+      ],
+      "shortName" : "Jan VHF",
+      "theySend" : "Grid square"
+    },
+    {
+      "cabrilloID" : "ARRL-VHF-JUN",
+      "exchangeExample" : "DM79",
+      "exchangeHint" : "Your grid square",
+      "key" : "arrl-vhf-jun",
+      "months" : [
+        6
+      ],
+      "name" : "ARRL June VHF",
+      "profileID" : "grid",
+      "schedule" : [
+        {
+          "month" : 6,
+          "ordinal" : 2
+        }
+      ],
+      "shortName" : "June VHF",
+      "theySend" : "Grid square"
+    },
+    {
+      "cabrilloID" : "ARRL-VHF-SEP",
+      "exchangeExample" : "DM79",
+      "exchangeHint" : "Your grid square",
+      "key" : "arrl-vhf-sep",
+      "months" : [
+        9
+      ],
+      "name" : "ARRL September VHF",
+      "profileID" : "grid",
+      "schedule" : [
+        {
+          "month" : 9,
+          "ordinal" : 2
+        }
+      ],
+      "shortName" : "Sept VHF",
+      "theySend" : "Grid square"
+    },
+    {
+      "cabrilloID" : "CQ-VHF",
+      "exchangeExample" : "DM79",
+      "exchangeHint" : "Your grid square",
+      "key" : "cq-ww-vhf",
+      "months" : [
+        7
+      ],
+      "name" : "CQ WW VHF",
+      "profileID" : "grid",
+      "schedule" : [
+        {
+          "month" : 7,
+          "ordinal" : 3
+        }
+      ],
+      "shortName" : "CQ VHF",
+      "theySend" : "Grid square"
+    },
+    {
+      "cabrilloID" : "",
+      "exchangeExample" : "DENVER CO",
+      "exchangeHint" : "Your county or state",
+      "key" : "qso-party",
+      "months" : [
+
+      ],
+      "name" : "State QSO Party",
+      "profileID" : "qso-party",
+      "schedule" : [
+
+      ],
+      "shortName" : "QSO Party",
+      "theySend" : "RST + county (in-state) or state"
+    }
+  ],
+  "version" : 1
+}
