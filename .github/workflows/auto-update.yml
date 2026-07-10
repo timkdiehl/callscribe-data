@@ -1,0 +1,58 @@
+# Weekly self-update: check the WA7BNM contest calendar's rolling 8-day
+# feed against our weekend rules. Every contest passes through that
+# window the week before it runs, so drift gets fixed right before it
+# would mislead the app. Confident fixes commit directly; anything
+# ambiguous becomes an issue instead of a guess.
+name: Auto-update from WA7BNM
+on:
+  schedule:
+    - cron: "0 13 * * 4" # Thursdays 13:00 UTC, ahead of contest weekends
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check feed and fix drift
+        run: python3 scripts/update_from_wa7bnm.py
+      - name: Validate result
+        run: python3 scripts/validate.py
+      - name: Commit fixes
+        run: |
+          if ! git diff --quiet contest-catalog.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add contest-catalog.json
+            git commit -m "Auto-update: schedule drift fixed from WA7BNM feed"
+            git push
+          fi
+      - name: Open issue for anything ambiguous
+        if: ${{ hashFiles('problems.txt') != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Catalog needs review: WA7BNM drift check"
+          number=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -z "$number" ]; then
+            gh issue create --title "$title" --body-file problems.txt
+          else
+            gh issue comment "$number" --body-file problems.txt
+          fi
+      # GitHub disables cron workflows after 60 days without repo
+      # activity; a rare heartbeat commit keeps the check alive through
+      # long quiet stretches between contest seasons.
+      - name: Keep the schedule alive
+        run: |
+          last=$(git log -1 --format=%ct)
+          now=$(date +%s)
+          if [ $(( (now - last) / 86400 )) -ge 45 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            date -u +%F > .heartbeat
+            git add .heartbeat
+            git commit -m "Heartbeat: keep the weekly check scheduled"
+            git push
+          fi
