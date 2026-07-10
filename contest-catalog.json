@@ -17,6 +17,7 @@
         }
       ],
       "shortName": "Field Day",
+      "submitVia": "cabrillo",
       "theySend": "Class + section"
     },
     {
@@ -36,6 +37,7 @@
         }
       ],
       "shortName": "Winter FD",
+      "submitVia": "cabrillo",
       "theySend": "Class + section"
     },
     {
@@ -53,6 +55,7 @@
         }
       ],
       "shortName": "WPX SSB",
+      "submitVia": "cabrillo",
       "theySend": "RST + serial number"
     },
     {
@@ -70,6 +73,7 @@
         }
       ],
       "shortName": "WPX CW",
+      "submitVia": "cabrillo",
       "theySend": "RST + serial number"
     },
     {
@@ -89,6 +93,7 @@
         }
       ],
       "shortName": "CQ WW SSB",
+      "submitVia": "cabrillo",
       "theySend": "RST + CQ zone"
     },
     {
@@ -108,6 +113,7 @@
         }
       ],
       "shortName": "CQ WW CW",
+      "submitVia": "cabrillo",
       "theySend": "RST + CQ zone"
     },
     {
@@ -127,6 +133,7 @@
         }
       ],
       "shortName": "IARU HF",
+      "submitVia": "cabrillo",
       "theySend": "RST + ITU zone (HQ stations send a society)"
     },
     {
@@ -146,6 +153,7 @@
         }
       ],
       "shortName": "SS Phone",
+      "submitVia": "cabrillo",
       "theySend": "Serial, precedence, check, section"
     },
     {
@@ -165,6 +173,7 @@
         }
       ],
       "shortName": "SS CW",
+      "submitVia": "cabrillo",
       "theySend": "Serial, precedence, check, section"
     },
     {
@@ -189,6 +198,7 @@
         }
       ],
       "shortName": "NAQP SSB",
+      "submitVia": "cabrillo",
       "theySend": "Name + state"
     },
     {
@@ -213,6 +223,7 @@
         }
       ],
       "shortName": "NAQP CW",
+      "submitVia": "cabrillo",
       "theySend": "Name + state"
     },
     {
@@ -232,6 +243,7 @@
         }
       ],
       "shortName": "10-10 Winter",
+      "submitVia": "adif",
       "theySend": "Name, state, 10-10 number"
     },
     {
@@ -251,6 +263,7 @@
         }
       ],
       "shortName": "10-10 Summer",
+      "submitVia": "adif",
       "theySend": "Name, state, 10-10 number"
     },
     {
@@ -270,6 +283,7 @@
         }
       ],
       "shortName": "ARRL DX",
+      "submitVia": "cabrillo",
       "theySend": "RST + state (W/VE) or power (DX)"
     },
     {
@@ -289,6 +303,7 @@
         }
       ],
       "shortName": "ARRL 10m",
+      "submitVia": "cabrillo",
       "theySend": "RST + state (or serial from DX)"
     },
     {
@@ -308,6 +323,7 @@
         }
       ],
       "shortName": "CQ 160",
+      "submitVia": "cabrillo",
       "theySend": "RST + state/province"
     },
     {
@@ -327,6 +343,7 @@
         }
       ],
       "shortName": "Jan VHF",
+      "submitVia": "cabrillo",
       "theySend": "Grid square"
     },
     {
@@ -346,6 +363,7 @@
         }
       ],
       "shortName": "June VHF",
+      "submitVia": "cabrillo",
       "theySend": "Grid square"
     },
     {
@@ -365,6 +383,7 @@
         }
       ],
       "shortName": "Sept VHF",
+      "submitVia": "cabrillo",
       "theySend": "Grid square"
     },
     {
@@ -384,6 +403,7 @@
         }
       ],
       "shortName": "CQ VHF",
+      "submitVia": "cabrillo",
       "theySend": "Grid square"
     },
     {
@@ -396,6 +416,7 @@
       "profileID": "qso-party",
       "schedule": [],
       "shortName": "QSO Party",
+      "submitVia": "cabrillo",
       "theySend": "RST + county (in-state) or state"
     }
   ],

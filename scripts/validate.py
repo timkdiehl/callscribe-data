@@ -43,6 +43,8 @@ def main():
             fail(f"{key}: missing name")
         if e.get("profileID") not in KNOWN_PROFILES:
             fail(f"{key}: unknown profileID {e.get('profileID')!r}")
+        if e.get("submitVia") not in (None, "cabrillo", "adif"):
+            fail(f"{key}: bad submitVia {e.get('submitVia')!r}")
         for rule in e.get("schedule", []):
             month, ordinal = rule.get("month"), rule.get("ordinal")
             if month not in range(1, 13):
