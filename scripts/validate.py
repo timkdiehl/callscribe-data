@@ -26,8 +26,8 @@ def main():
     except json.JSONDecodeError as e:
         fail(f"not valid JSON: {e}")
 
-    if data.get("version") not in (1, 2):
-        fail(f"version must be 1 or 2, got {data.get('version')!r}")
+    if data.get("version") != 2:
+        fail(f"version must be 2 (what installed builds require), got {data.get('version')!r}")
     entries = data.get("entries")
     if not isinstance(entries, list) or not entries:
         fail("entries must be a non-empty list")
