@@ -9,7 +9,8 @@ from pathlib import Path
 # else is dropped by the app, so it's a mistake here.
 KNOWN_PROFILES = {
     "rst-serial", "rst-cq-zone", "rst-itu-zone", "rst-state",
-    "class-section", "name-state", "sweepstakes", "grid", "qso-party",
+    "rst-serial-state", "class-section", "name-state", "sweepstakes",
+    "grid", "qso-party",
 }
 
 

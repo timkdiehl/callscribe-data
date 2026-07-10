@@ -287,6 +287,26 @@
       "theySend": "RST + state (W/VE) or power (DX)"
     },
     {
+      "cabrilloID": "ARRL-DX-CW",
+      "exchangeExample": "CO",
+      "exchangeHint": "Your state (or power if DX)",
+      "key": "arrl-dx-cw",
+      "months": [
+        2
+      ],
+      "name": "ARRL DX (CW)",
+      "profileID": "rst-state",
+      "schedule": [
+        {
+          "month": 2,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "ARRL DX CW",
+      "submitVia": "cabrillo",
+      "theySend": "RST + state (W/VE) or power (DX)"
+    },
+    {
       "cabrilloID": "ARRL-10",
       "exchangeExample": "CO",
       "exchangeHint": "Your state",
@@ -325,6 +345,93 @@
       "shortName": "CQ 160",
       "submitVia": "cabrillo",
       "theySend": "RST + state/province"
+    },
+    {
+      "cabrilloID": "CQ-160-CW",
+      "exchangeExample": "CO",
+      "exchangeHint": "Your state",
+      "key": "cq-160-cw",
+      "months": [
+        1
+      ],
+      "name": "CQ 160-Meter CW",
+      "profileID": "rst-state",
+      "schedule": [
+        {
+          "month": 1,
+          "ordinal": -1
+        }
+      ],
+      "shortName": "CQ 160 CW",
+      "submitVia": "cabrillo",
+      "theySend": "RST + state/province"
+    },
+    {
+      "cabrilloID": "CANADA-DAY",
+      "key": "rac-canada-day",
+      "months": [
+        7
+      ],
+      "name": "RAC Canada Day Contest",
+      "profileID": "rst-serial-state",
+      "schedule": [],
+      "shortName": "Canada Day",
+      "submitVia": "cabrillo",
+      "theySend": "RST + province (VE) or serial"
+    },
+    {
+      "cabrilloID": "CANADA-WINTER",
+      "key": "rac-winter",
+      "months": [
+        12
+      ],
+      "name": "RAC Winter Contest",
+      "profileID": "rst-serial-state",
+      "schedule": [
+        {
+          "month": 12,
+          "ordinal": -1
+        }
+      ],
+      "shortName": "RAC Winter",
+      "submitVia": "cabrillo",
+      "theySend": "RST + province (VE) or serial"
+    },
+    {
+      "cabrilloID": "OCEANIA-DX-SSB",
+      "key": "oceania-dx-ph",
+      "months": [
+        10
+      ],
+      "name": "Oceania DX (Phone)",
+      "profileID": "rst-serial",
+      "schedule": [
+        {
+          "month": 10,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "Oceania DX",
+      "submitVia": "cabrillo",
+      "theySend": "RST + serial number"
+    },
+    {
+      "cabrilloID": "SAC-SSB",
+      "key": "sac-ssb",
+      "months": [
+        10
+      ],
+      "name": "Scandinavian Activity Contest (SSB)",
+      "profileID": "rst-serial",
+      "schedule": [
+        {
+          "month": 10,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "SAC SSB",
+      "submitVia": "cabrillo",
+      "theySend": "RST + serial number"
     },
     {
       "cabrilloID": "ARRL-VHF-JAN",
@@ -405,6 +512,858 @@
       "shortName": "CQ VHF",
       "submitVia": "cabrillo",
       "theySend": "Grid square"
+    },
+    {
+      "cabrilloID": "VT-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "vermont-qp",
+      "months": [
+        2
+      ],
+      "name": "Vermont QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 2,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "VT QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "MN-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "minnesota-qp",
+      "months": [
+        2
+      ],
+      "name": "Minnesota QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 2,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "MN QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "BC-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "bc-qp",
+      "months": [
+        2
+      ],
+      "name": "British Columbia QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 2,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "BC QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "SC-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "south-carolina-qp",
+      "months": [
+        2,
+        3
+      ],
+      "name": "South Carolina QSO Party",
+      "profileID": "qso-party",
+      "schedule": [],
+      "shortName": "SC QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "NC-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "north-carolina-qp",
+      "months": [
+        2,
+        3
+      ],
+      "name": "North Carolina QSO Party",
+      "profileID": "qso-party",
+      "schedule": [],
+      "shortName": "NC QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "OK-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "oklahoma-qp",
+      "months": [
+        3
+      ],
+      "name": "Oklahoma QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 3,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "OK QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "ID-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "idaho-qp",
+      "months": [
+        3
+      ],
+      "name": "Idaho QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 3,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "ID QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "WIQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "wisconsin-qp",
+      "months": [
+        3
+      ],
+      "name": "Wisconsin QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 3,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "WI QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "VA-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "virginia-qp",
+      "months": [
+        3
+      ],
+      "name": "Virginia QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 3,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "VA QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "LA-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "louisiana-qp",
+      "months": [
+        4
+      ],
+      "name": "Louisiana QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 4,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "LA QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "NM-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "new-mexico-qp",
+      "months": [
+        4
+      ],
+      "name": "New Mexico QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 4,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "NM QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "MO-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "missouri-qp",
+      "months": [
+        4
+      ],
+      "name": "Missouri QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 4,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "MO QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "GA-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "georgia-qp",
+      "months": [
+        4
+      ],
+      "name": "Georgia QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 4,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "GA QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "MI-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "michigan-qp",
+      "months": [
+        4
+      ],
+      "name": "Michigan QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 4,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "MI QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "ON-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "ontario-qp",
+      "months": [
+        4
+      ],
+      "name": "Ontario QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 4,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "ON QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "QC-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "quebec-qp",
+      "months": [
+        4
+      ],
+      "name": "Quebec QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 4,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "QC QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "FCG-FQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "florida-qp",
+      "months": [
+        4
+      ],
+      "name": "Florida QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 4,
+          "ordinal": 4
+        }
+      ],
+      "shortName": "FL QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "7QP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "7qp",
+      "months": [
+        5
+      ],
+      "name": "7th Call Area QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 5,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "7QP",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "IN-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "indiana-qp",
+      "months": [
+        5
+      ],
+      "name": "Indiana QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 5,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "IN QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "DE-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "delaware-qp",
+      "months": [
+        5
+      ],
+      "name": "Delaware QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 5,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "DE QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "NEQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "new-england-qp",
+      "months": [
+        5
+      ],
+      "name": "New England QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 5,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "NEQP",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "AR-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "arkansas-qp",
+      "months": [
+        5
+      ],
+      "name": "Arkansas QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 5,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "AR QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "KYQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "kentucky-qp",
+      "months": [
+        6
+      ],
+      "name": "Kentucky QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 6,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "KY QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "AC-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "atlantic-canada-qp",
+      "months": [
+        6
+      ],
+      "name": "Atlantic Canada QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 6,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "Atl Canada QP",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "WVQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "west-virginia-qp",
+      "months": [
+        6
+      ],
+      "name": "West Virginia QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 6,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "WV QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "AL-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "alabama-qp",
+      "months": [
+        7
+      ],
+      "name": "Alabama QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 7,
+          "ordinal": 4
+        }
+      ],
+      "shortName": "AL QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "MDC-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "maryland-dc-qp",
+      "months": [
+        8
+      ],
+      "name": "Maryland-DC QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 8,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "MDC QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "HI-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "hawaii-qp",
+      "months": [
+        8
+      ],
+      "name": "Hawaii QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 8,
+          "ordinal": 4
+        }
+      ],
+      "shortName": "HI QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "MRRC-OHQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "ohio-qp",
+      "months": [
+        8
+      ],
+      "name": "Ohio QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 8,
+          "ordinal": 4
+        }
+      ],
+      "shortName": "OH QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "KS-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "kansas-qp",
+      "months": [
+        8
+      ],
+      "name": "Kansas QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 8,
+          "ordinal": -1
+        }
+      ],
+      "shortName": "KS QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "TN-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "tennessee-qp",
+      "months": [
+        9
+      ],
+      "name": "Tennessee QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 9,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "TN QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "COQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "colorado-qp",
+      "months": [
+        9
+      ],
+      "name": "Colorado QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 9,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "CO QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "TXQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "texas-qp",
+      "months": [
+        9
+      ],
+      "name": "Texas QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 9,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "TX QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "IAQP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "iowa-qp",
+      "months": [
+        9
+      ],
+      "name": "Iowa QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 9,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "IA QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "NH-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "new-hampshire-qp",
+      "months": [
+        9
+      ],
+      "name": "New Hampshire QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 9,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "NH QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "WA-SALMON-RUN",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "salmon-run",
+      "months": [
+        9
+      ],
+      "name": "Washington State Salmon Run",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 9,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "Salmon Run",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "ME-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "maine-qp",
+      "months": [
+        9
+      ],
+      "name": "Maine QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 9,
+          "ordinal": 4
+        }
+      ],
+      "shortName": "ME QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "CA-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "california-qp",
+      "months": [
+        10
+      ],
+      "name": "California QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 10,
+          "ordinal": 1
+        }
+      ],
+      "shortName": "CA QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "AZ-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "arizona-qp",
+      "months": [
+        10
+      ],
+      "name": "Arizona QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 10,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "AZ QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "PA-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "pennsylvania-qp",
+      "months": [
+        10
+      ],
+      "name": "Pennsylvania QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 10,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "PA QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "SDQSOP",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "south-dakota-qp",
+      "months": [
+        10
+      ],
+      "name": "South Dakota QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 10,
+          "ordinal": 2
+        }
+      ],
+      "shortName": "SD QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "NY-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "new-york-qp",
+      "months": [
+        10
+      ],
+      "name": "New York QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 10,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "NY QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
+    },
+    {
+      "cabrilloID": "IL-QSO-PARTY",
+      "exchangeExample": "DENVER CO",
+      "exchangeHint": "Your county or state",
+      "key": "illinois-qp",
+      "months": [
+        10
+      ],
+      "name": "Illinois QSO Party",
+      "profileID": "qso-party",
+      "schedule": [
+        {
+          "month": 10,
+          "ordinal": 3
+        }
+      ],
+      "shortName": "IL QSO Party",
+      "submitVia": "cabrillo",
+      "theySend": "RST + county (in-state) or state"
     },
     {
       "cabrilloID": "",

@@ -27,7 +27,14 @@ from pathlib import Path
 
 RSS_URL = "https://www.contestcalendar.com/calendar.rss"
 
-# Catalog key → exact WA7BNM feed title.
+# Catalog key → exact WA7BNM feed title(s). A tuple lists accepted
+# spellings where the feed and the site pages are known to differ
+# (ARRL DX appears as both "Inter." and "International").
+#
+# Deliberately NOT enrolled — nothing to verify, only annual noise:
+#   rac-canada-day       fixed July 1 (weekday start, no weekend rule)
+#   south-carolina-qp    late-Feb weekend straddles into March
+#   north-carolina-qp    Sunday start on the same straddling weekend
 TITLES = {
     "arrl-fd": "ARRL Field Day",
     "1010-winter-ssb": "10-10 Int. Winter Contest, SSB",
@@ -42,13 +49,61 @@ TITLES = {
     "arrl-ss-cw": "ARRL Sweepstakes Contest, CW",
     "naqp-ssb": "North American QSO Party, SSB",
     "naqp-cw": "North American QSO Party, CW",
-    "arrl-dx-ph": "ARRL International DX Contest, SSB",
+    "arrl-dx-ph": ("ARRL Inter. DX Contest, SSB",
+                   "ARRL International DX Contest, SSB"),
+    "arrl-dx-cw": ("ARRL Inter. DX Contest, CW",
+                   "ARRL International DX Contest, CW"),
     "arrl-10m": "ARRL 10-Meter Contest",
     "cq-160-ssb": "CQ 160-Meter Contest, SSB",
+    "cq-160-cw": "CQ 160-Meter Contest, CW",
     "arrl-vhf-jan": "ARRL January VHF Contest",
     "arrl-vhf-jun": "ARRL June VHF Contest",
     "arrl-vhf-sep": "ARRL September VHF Contest",
     "cq-ww-vhf": "CQ Worldwide VHF Contest",
+    "rac-winter": "RAC Winter Contest",
+    "oceania-dx-ph": "Oceania DX Contest, Phone",
+    "sac-ssb": "Scandinavian Activity Contest, SSB",
+    "vermont-qp": "Vermont QSO Party",
+    "minnesota-qp": "Minnesota QSO Party",
+    "bc-qp": "British Columbia QSO Party",
+    "oklahoma-qp": "Oklahoma QSO Party",
+    "idaho-qp": "Idaho QSO Party",
+    "wisconsin-qp": "Wisconsin QSO Party",
+    "virginia-qp": "Virginia QSO Party",
+    "louisiana-qp": "Louisiana QSO Party",
+    "new-mexico-qp": "New Mexico QSO Party",
+    "missouri-qp": "Missouri QSO Party",
+    "georgia-qp": "Georgia QSO Party",
+    "michigan-qp": "Michigan QSO Party",
+    "ontario-qp": "Ontario QSO Party",
+    "quebec-qp": "Quebec QSO Party",
+    "florida-qp": "Florida QSO Party",
+    "7qp": "7th Call Area QSO Party",
+    "indiana-qp": "Indiana QSO Party",
+    "delaware-qp": "Delaware QSO Party",
+    "new-england-qp": "New England QSO Party",
+    "arkansas-qp": "Arkansas QSO Party",
+    "kentucky-qp": "Kentucky QSO Party",
+    "atlantic-canada-qp": "Atlantic Canada QSO Party",
+    "west-virginia-qp": "West Virginia QSO Party",
+    "alabama-qp": "Alabama QSO Party",
+    "maryland-dc-qp": "Maryland-DC QSO Party",
+    "hawaii-qp": "Hawaii QSO Party",
+    "ohio-qp": "Ohio QSO Party",
+    "kansas-qp": "Kansas QSO Party",
+    "tennessee-qp": "Tennessee QSO Party",
+    "colorado-qp": "Colorado QSO Party",
+    "texas-qp": "Texas QSO Party",
+    "iowa-qp": "Iowa QSO Party",
+    "new-hampshire-qp": "New Hampshire QSO Party",
+    "salmon-run": "Washington State Salmon Run",
+    "maine-qp": "Maine QSO Party",
+    "california-qp": "California QSO Party",
+    "arizona-qp": "Arizona QSO Party",
+    "pennsylvania-qp": "Pennsylvania QSO Party",
+    "south-dakota-qp": "South Dakota QSO Party",
+    "new-york-qp": "New York QSO Party",
+    "illinois-qp": "Illinois QSO Party",
 }
 MONTHS = {m: i + 1 for i, m in enumerate(
     "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split())}
@@ -129,7 +184,10 @@ def main():
         req = urllib.request.Request(RSS_URL, headers={"User-Agent": "callscribe-data catalog check"})
         rss = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "replace")
 
-    by_title = {t: k for k, t in TITLES.items()}
+    by_title = {}
+    for k, titles in TITLES.items():
+        for t in (titles,) if isinstance(titles, str) else titles:
+            by_title[t] = k
     changed, problems = [], []
 
     for title, description in parse_feed_items(rss):
