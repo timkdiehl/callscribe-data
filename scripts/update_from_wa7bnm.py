@@ -6,12 +6,15 @@ the week before it runs — checking weekly verifies each catalog entry's
 weekend rule right when a wrong date would mislead the app's picker.
 
 For each feed item that names a catalog contest:
-- parse its start day, snap to the weekend's Saturday (UTC),
-- compare with the Saturday our weekend rule predicts,
+- fixed-date entries (rules with "day"): just confirm the feed start
+  matches; a fixed date that moves goes to a human,
+- otherwise parse the start day, snap to the weekend's Saturday (UTC),
+- compare with the Saturday our weekend rule predicts (loose rules
+  count every Saturday, strict ones only full weekends),
 - on drift, derive the corrected rule from the observed date and update
   contest-catalog.json (only that entry's rule for that month),
-- anything ambiguous (weekday start, no full-weekend fit) is reported
-  for a human instead of guessed at.
+- anything ambiguous (weekday start on a weekend rule) is reported for
+  a human instead of guessed at.
 
 Signals for the workflow: a dirty contest-catalog.json means "commit
 me"; a problems.txt means "open an issue". Exit is 0 unless the feed or
@@ -30,11 +33,6 @@ RSS_URL = "https://www.contestcalendar.com/calendar.rss"
 # Catalog key → exact WA7BNM feed title(s). A tuple lists accepted
 # spellings where the feed and the site pages are known to differ
 # (ARRL DX appears as both "Inter." and "International").
-#
-# Deliberately NOT enrolled — nothing to verify, only annual noise:
-#   rac-canada-day       fixed July 1 (weekday start, no weekend rule)
-#   south-carolina-qp    late-Feb weekend straddles into March
-#   north-carolina-qp    Sunday start on the same straddling weekend
 TITLES = {
     "arrl-fd": "ARRL Field Day",
     "1010-winter-ssb": "10-10 Int. Winter Contest, SSB",
@@ -60,12 +58,15 @@ TITLES = {
     "arrl-vhf-jun": "ARRL June VHF Contest",
     "arrl-vhf-sep": "ARRL September VHF Contest",
     "cq-ww-vhf": "CQ Worldwide VHF Contest",
+    "rac-canada-day": "RAC Canada Day Contest",
     "rac-winter": "RAC Winter Contest",
     "oceania-dx-ph": "Oceania DX Contest, Phone",
     "sac-ssb": "Scandinavian Activity Contest, SSB",
     "vermont-qp": "Vermont QSO Party",
     "minnesota-qp": "Minnesota QSO Party",
     "bc-qp": "British Columbia QSO Party",
+    "south-carolina-qp": "South Carolina QSO Party",
+    "north-carolina-qp": "North Carolina QSO Party",
     "oklahoma-qp": "Oklahoma QSO Party",
     "idaho-qp": "Idaho QSO Party",
     "wisconsin-qp": "Wisconsin QSO Party",
@@ -110,7 +111,7 @@ MONTHS = {m: i + 1 for i, m in enumerate(
 
 
 def full_weekend_saturdays(year, month):
-    """Saturdays whose Sunday stays in the month — mirrors WeekendRule."""
+    """Saturdays whose Sunday stays in the month — mirrors ScheduleRule."""
     out = []
     day = dt.date(year, month, 1)
     while day.month == month:
@@ -122,8 +123,22 @@ def full_weekend_saturdays(year, month):
     return out
 
 
+def all_saturdays(year, month):
+    """Every Saturday of the month — what a loose rule counts."""
+    out = []
+    day = dt.date(year, month, 1)
+    while day.month == month:
+        if day.weekday() == 5:
+            out.append(day)
+        day += dt.timedelta(days=1)
+    return out
+
+
 def rule_saturday(rule, year):
-    sats = full_weekend_saturdays(year, rule["month"])
+    if "ordinal" not in rule:  # fixed-date rules have no Saturday
+        return None
+    lister = all_saturdays if rule.get("loose") else full_weekend_saturdays
+    sats = lister(year, rule["month"])
     if not sats:
         return None
     if rule["ordinal"] == -1:
@@ -158,8 +173,11 @@ def first_date(description, today):
 
 
 def weekend_saturday(date):
-    """Snap a contest start day to its weekend's Saturday; None for
-    weekday starts (not a full-weekend contest — needs a human)."""
+    """Snap a contest start day to its weekend's Saturday. Friday
+    evenings (CQ 160's 2200Z start) belong to the weekend ahead; other
+    weekday starts return None (needs a human)."""
+    if date.weekday() == 4:
+        return date + dt.timedelta(days=1)
     if date.weekday() == 5:
         return date
     if date.weekday() == 6:
@@ -199,31 +217,58 @@ def main():
         if start is None:
             problems.append(f"{key}: could not parse date from {description!r}")
             continue
+
+        # Fixed-date contests (RAC Canada Day): the date IS the rule.
+        # A fixed date that moves is a rule-shape question, not drift —
+        # always a human's call.
+        day_rules = [r for r in entry.get("schedule", []) if "day" in r]
+        if day_rules:
+            if any(r["month"] == start.month and r["day"] == start.day for r in day_rules):
+                print(f"ok: {key} — fixed date, feed start {start} matches")
+            else:
+                problems.append(
+                    f"{key}: feed start {start} does not match fixed-date "
+                    f"rule(s) {day_rules} — review by hand"
+                )
+            continue
+
         actual_sat = weekend_saturday(start)
         if actual_sat is None:
             problems.append(
-                f"{key}: starts on a weekday ({start}) — not a full-weekend "
+                f"{key}: starts on a weekday ({start}) — not a weekend "
                 f"pattern, review the schedule rule by hand"
             )
             continue
 
-        month_rules = [r for r in entry.get("schedule", []) if r["month"] == actual_sat.month]
+        month_rules = [
+            r for r in entry.get("schedule", [])
+            if r.get("month") == actual_sat.month and "ordinal" in r
+        ]
         predicted = [rule_saturday(r, actual_sat.year) for r in month_rules]
         if actual_sat in predicted:
             print(f"ok: {key} — rule predicts {actual_sat}, feed agrees")
             continue
 
-        sats = full_weekend_saturdays(actual_sat.year, actual_sat.month)
-        if actual_sat not in sats:
-            problems.append(
-                f"{key}: feed says {actual_sat}, which is not a full weekend "
-                f"of its month — review by hand"
-            )
-            continue
-        new_rule = {"month": actual_sat.month, "ordinal": sats.index(actual_sat) + 1}
+        # Derive the corrected rule. Keep a loose rule loose (its whole
+        # point is the straddle years); otherwise prefer the strict
+        # full-weekend form and fall back to loose when the observed
+        # Saturday's Sunday spills into the next month.
+        full = full_weekend_saturdays(actual_sat.year, actual_sat.month)
+        if actual_sat in full and not any(r.get("loose") for r in month_rules):
+            new_rule = {"month": actual_sat.month, "ordinal": full.index(actual_sat) + 1}
+        else:
+            sats = all_saturdays(actual_sat.year, actual_sat.month)
+            new_rule = {
+                "month": actual_sat.month,
+                "ordinal": sats.index(actual_sat) + 1,
+                "loose": True,
+            }
         old = month_rules[0] if month_rules else None
         entry.setdefault("schedule", [])
-        entry["schedule"] = [r for r in entry["schedule"] if r["month"] != actual_sat.month]
+        entry["schedule"] = [
+            r for r in entry["schedule"]
+            if "ordinal" not in r or r["month"] != actual_sat.month
+        ]
         entry["schedule"].append(new_rule)
         entry["schedule"].sort(key=lambda r: r["month"])
         changed.append(

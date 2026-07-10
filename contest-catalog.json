@@ -374,7 +374,12 @@
       ],
       "name": "RAC Canada Day Contest",
       "profileID": "rst-serial-state",
-      "schedule": [],
+      "schedule": [
+        {
+          "day": 1,
+          "month": 7
+        }
+      ],
       "shortName": "Canada Day",
       "submitVia": "cabrillo",
       "theySend": "RST + province (VE) or serial"
@@ -584,7 +589,13 @@
       ],
       "name": "South Carolina QSO Party",
       "profileID": "qso-party",
-      "schedule": [],
+      "schedule": [
+        {
+          "loose": true,
+          "month": 2,
+          "ordinal": -1
+        }
+      ],
       "shortName": "SC QSO Party",
       "submitVia": "cabrillo",
       "theySend": "RST + county (in-state) or state"
@@ -600,7 +611,13 @@
       ],
       "name": "North Carolina QSO Party",
       "profileID": "qso-party",
-      "schedule": [],
+      "schedule": [
+        {
+          "loose": true,
+          "month": 2,
+          "ordinal": -1
+        }
+      ],
       "shortName": "NC QSO Party",
       "submitVia": "cabrillo",
       "theySend": "RST + county (in-state) or state"
@@ -1379,5 +1396,5 @@
       "theySend": "RST + county (in-state) or state"
     }
   ],
-  "version": 1
+  "version": 2
 }

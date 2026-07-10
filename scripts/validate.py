@@ -26,8 +26,8 @@ def main():
     except json.JSONDecodeError as e:
         fail(f"not valid JSON: {e}")
 
-    if data.get("version") != 1:
-        fail(f"version must be 1, got {data.get('version')!r}")
+    if data.get("version") not in (1, 2):
+        fail(f"version must be 1 or 2, got {data.get('version')!r}")
     entries = data.get("entries")
     if not isinstance(entries, list) or not entries:
         fail("entries must be a non-empty list")
@@ -47,11 +47,21 @@ def main():
         if e.get("submitVia") not in (None, "cabrillo", "adif"):
             fail(f"{key}: bad submitVia {e.get('submitVia')!r}")
         for rule in e.get("schedule", []):
-            month, ordinal = rule.get("month"), rule.get("ordinal")
+            month, ordinal, day = rule.get("month"), rule.get("ordinal"), rule.get("day")
             if month not in range(1, 13):
                 fail(f"{key}: bad schedule month {month!r}")
-            if ordinal not in (-1, 1, 2, 3, 4):
+            # A rule is a weekend (ordinal, optionally loose) or a fixed
+            # date (day) — exactly one of the two.
+            if (ordinal is None) == (day is None):
+                fail(f"{key}: rule needs ordinal XOR day: {rule!r}")
+            if ordinal is not None and ordinal not in (-1, 1, 2, 3, 4):
                 fail(f"{key}: bad schedule ordinal {ordinal!r}")
+            if day is not None and day not in range(1, 32):
+                fail(f"{key}: bad schedule day {day!r}")
+            if rule.get("loose") not in (None, True):
+                fail(f"{key}: bad loose flag {rule.get('loose')!r}")
+            if day is not None and "loose" in rule:
+                fail(f"{key}: loose applies to weekend rules only: {rule!r}")
 
     print(f"OK: {len(entries)} entries")
 
